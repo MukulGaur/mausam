@@ -42,9 +42,9 @@ const Main = () => {
                             <p>{day}, {month} {date}, {year}</p>
                         </div>
                         <div id='temp'>
-                            <h1>{city.temp}&#8451;</h1>
+                            <h1>{city.temp} <span style={{"fontSize":"60px"}}>&#8451;</span> </h1>
+                            <hr id='line'/>
                         </div>
-                        <hr/>
                         <div id='weather'>
                             icon <br/> Sunny
                         </div>
