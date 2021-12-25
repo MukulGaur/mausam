@@ -13,6 +13,8 @@ const Main = () => {
 
     const [city, setCity] = useState(null);
     const [search, setSearch] = useState("Mumbai");
+    const [country, setCountry] = useState("IN");
+    const [weather, setWeather] = useState();
 
     useEffect( () => {
         const fetchApi = async () => {
@@ -21,6 +23,8 @@ const Main = () => {
             const resJson = await response.json();
             // console.log(resJson);
             setCity(resJson.main);
+            setCountry(resJson.sys.country);
+            setWeather(resJson.weather[0].main);
         };
 
         fetchApi();
@@ -28,7 +32,7 @@ const Main = () => {
 
     return (
         <div>
-            <section className='main'>
+            <section className='main' id='main-section'>
                 <div id='search-section'>
                     <input type="search" value={search} placeholder='enter city name' className='searchField' onChange={(event) => {setSearch(event.target.value)}} />
                 </div>
@@ -38,7 +42,7 @@ const Main = () => {
                 ) : (
                     <div>
                         <div id="location-date">
-                            <h3>{search}</h3>
+                            <h3>{search}, {country}</h3>
                             <p>{day}, {month} {date}, {year}</p>
                         </div>
                         <div id='temp'>
@@ -46,7 +50,7 @@ const Main = () => {
                             <hr id='line'/>
                         </div>
                         <div id='weather'>
-                            icon <br/> Sunny
+                            <p>{weather}</p>
                         </div>
                         <div id='min-max'>
                             <p>{city.temp_min}&#8451;/{city.temp_max}&#8451;</p>
@@ -54,8 +58,10 @@ const Main = () => {
                     </div>
                 )}
             </section>
+            
         </div>
     )
+    
 }
 
 export default Main
