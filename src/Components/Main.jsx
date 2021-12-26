@@ -36,6 +36,8 @@ const Main = () => {
         cssStyle.backgroundImage = "url('images/smoke.jfif')";
     }else if(weather === "Clouds"){
         cssStyle.backgroundImage = "url('images/cloudy.jfif')";
+    }else if(weather === "Mist"){
+        cssStyle.backgroundImage = "url('images/smoke.jfif')";
     }else {
         cssStyle.backgroundImage = "url('images/clear.jfif')";
     }
