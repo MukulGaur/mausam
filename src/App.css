@@ -16,7 +16,8 @@
   box-shadow: 1px 1px 5px black;
   padding: 10px;
   text-align: center;
-  background-image: url("./images/clear.jfif");
+  /* background-image: url("./images/clear.jfif"); */
+  background-size: cover;
 }
 
 .searchField {

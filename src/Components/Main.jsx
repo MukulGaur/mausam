@@ -30,9 +30,19 @@ const Main = () => {
         fetchApi();
     }, [search]);
 
+    const cssStyle = {};
+
+    if(weather === "Smoke"){
+        cssStyle.backgroundImage = "url('images/smoke.jfif')";
+    }else if(weather === "Clouds"){
+        cssStyle.backgroundImage = "url('images/cloudy.jfif')";
+    }else {
+        cssStyle.backgroundImage = "url('images/clear.jfif')";
+    }
+
     return (
         <div>
-            <section className='main' id='main-section'>
+            <section className='main' id='main-section' style={cssStyle}>
                 <div id='search-section'>
                     <input type="search" value={search} placeholder='enter city name' className='searchField' onChange={(event) => {setSearch(event.target.value)}} />
                 </div>
